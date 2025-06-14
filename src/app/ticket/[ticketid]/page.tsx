@@ -1,3 +1,4 @@
+import { data } from "@/data";
 
   type paratype= {
 params:{
@@ -8,9 +9,14 @@ params:{
 
 
 let  Ticketitempage =  ({params}:paratype)=>{
-console.log(params)
+    let ticketdata=data.find(el=>el.id==params.ticketid)
+
+    console.log(ticketdata,"ticktdatac")
+
      return <h1>
-          ticketitempage {params.ticketid}
+        tittlke si the {ticketdata?.tittle}<br/>
+        id  is the {ticketdata?.id}<br/>
+        content is the {ticketdata?.id}
      </h1>
 }
 
