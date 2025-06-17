@@ -1,3 +1,5 @@
+
+"use client"
 import { data } from "@/data";
 
   type paratype= {
@@ -10,8 +12,8 @@ params:{
 
 let  Ticketitempage =  ({params}:paratype)=>{
     let ticketdata=data.find(el=>el.id==params.ticketid)
-  console.log("is displayingkjhkjbkjbkjbkj")
-    console.log(ticketdata,"ticktdatac")
+  console.log(" displauyi ing the ticketitemonespage")
+
 
      return <h1 className="text-3xl font-bold underline">
         tittlke si the {ticketdata?.tittle}<br/>

@@ -1,5 +1,8 @@
+
+
+"use client"
 import { ThemeProvider } from "next-themes"
-import React from "react"
+
 
 
 type themepropvitypes={
@@ -9,6 +12,8 @@ type themepropvitypes={
 
 
 function Themesetting({children}:themepropvitypes) {
+
+  console.log("the  themedisplayingb")
   return (
     <ThemeProvider   attribute={"class"}  enableSystem  defaultTheme="system">{children}</ThemeProvider>
   )

@@ -1,5 +1,5 @@
 
-"use client"
+
 import { buttonVariants } from "@/components/ui/button";  
  import { ticketitempath } from "@/path";
 import Link from "next/link";
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/card"
 import { CheckCheck, ExternalLink, Sparkle } from "lucide-react";
 import { useEffect, useState } from "react";
-import { data, Ticketdatatype } from "@/data";
+import {  Ticketdatatype } from "@/data";
 import Getdata from "@/components/datafetching/Getdata";
 let ticketicon={
   
@@ -23,28 +23,10 @@ let ticketicon={
 }
 
 
-let  Ticketpage =  ()=>{
+let  Ticketpage =   async  ()=>{
+console.log("toivvtt pgeerenferd")
+let data=await Getdata()
 
-let [data,setdata]=useState<Ticketdatatype[]> ([])
-useEffect(() => {
-alert("callled")
-let fetchdata=  async ()=>{
-
-
-  let data=await Getdata()
-
-  setdata(data)
-
-}
-fetchdata()
-
-
-
-
-  return () => {
-    
-  }
-}, [])
 
      return <div>
 
