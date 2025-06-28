@@ -1,6 +1,7 @@
 
-"use client"
-import { data } from "@/data";
+
+import { getfilkterdata } from "@/components/datafetching/getfilter";
+import { data, Ticketdatatype } from "@/data";
 
   type paratype= {
 params:{
@@ -10,11 +11,12 @@ params:{
 
 
 
-let  Ticketitempage =  ({params}:paratype)=>{
-    let ticketdata=data.find(el=>el.id==params.ticketid)
-  console.log(" displauyi ing the ticketitemonespage")
+let  Ticketitempage = async (   {params}:paratype)=>{
+    // let ticketdata=data.find(el=>el.id==params.ticketid)
+   
+  console.log(" hello ing the tlet icketitemonespage", getfilkterdata(params.ticketid))
 
-
+let ticketdata :Ticketdatatype|undefined| null=getfilkterdata(params.ticketid)
      return <h1 className="text-3xl font-bold underline">
         tittlke si the {ticketdata?.tittle}<br/>
         id  is the {ticketdata?.id}<br/>
