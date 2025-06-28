@@ -3,6 +3,7 @@
 
 import { Ticketshowpagec } from "@/components/datafetching/Tickketshowpage";
 import { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
 
 let  Ticketpage =     ()=>{
@@ -27,10 +28,14 @@ let Ticketp=()=>{
     <div>
 
       helllllllll
-        <Suspense>
+
+      <ErrorBoundary   fallback="failed to fetch the data soemthing wenty wrog">
+            <Suspense>
     <Ticketpage/>
 
     </Suspense>
+      </ErrorBoundary>
+    
     </div>
   
   )

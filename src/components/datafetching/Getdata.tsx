@@ -5,7 +5,7 @@ import { data, Ticketdatatype } from "@/data";
 
     return new Promise((resolve,reject)=>{
 // throw  new Error("faild to fetchjh")
-         return    setTimeout(() => {
+             setTimeout(() => {
             return resolve(data)          }, 4000);
     })
 
