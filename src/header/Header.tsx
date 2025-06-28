@@ -21,24 +21,25 @@ function Header() {
   <NavigationMenu   style={{}}  >
   <NavigationMenuList   style={{background:"red",width:"100vw",display:"flex",justifyContent:"space-around"
   }}>
+    <Link href={"/"}>
     <NavigationMenuItem >
    
-   <Link href={"/"}>
-      <NavigationMenuTrigger>Home</NavigationMenuTrigger></Link>
+   
+      <NavigationMenuTrigger>Home</NavigationMenuTrigger>
       {/* <NavigationMenuContent>
         <NavigationMenuLink>Link</NavigationMenuLink>
       </NavigationMenuContent> */}
-    </NavigationMenuItem>
+    </NavigationMenuItem></Link>
 
-        <NavigationMenuItem>
+       <Link  href={"/ticket"}> <NavigationMenuItem>
 
-<Link  href={"/ticket"}>
+
       <NavigationMenuTrigger>Ticket</NavigationMenuTrigger>
-</Link>
+
       {/* <NavigationMenuContent>
         <NavigationMenuLink>Link</NavigationMenuLink>
       </NavigationMenuContent> */}
-    </NavigationMenuItem>
+    </NavigationMenuItem></Link>
 <Themeswitcher/> 
   </NavigationMenuList> 
 </NavigationMenu>  </div>

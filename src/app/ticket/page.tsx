@@ -1,74 +1,39 @@
 
 
-import { buttonVariants } from "@/components/ui/button";  
- import { ticketitempath } from "@/path";
-import Link from "next/link";
 
-import {
-  Card,
- 
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { CheckCheck, ExternalLink, Sparkle } from "lucide-react";
-import { useEffect, useState } from "react";
-import {  Ticketdatatype } from "@/data";
-import Getdata from "@/components/datafetching/Getdata";
-let ticketicon={
-  
-    open:<ExternalLink color={"yellow"} />,done:<CheckCheck color="#e0ff42" />
-}
+import { Ticketshowpagec } from "@/components/datafetching/Tickketshowpage";
+import { Suspense } from "react";
 
 
-let  Ticketpage =   async  ()=>{
-console.log("toivvtt pgeerenferd")
-let data=await Getdata()
+let  Ticketpage =     ()=>{
+
 
 
      return <div>
 
+<p>it is the ticketpo</p>
 
-{data.map(el=>{
+<Suspense>
+ <Ticketshowpagec/>
 
-
-// return (
-
-// <div   key={el.id} >
-// <Link      className={buttonVariants({variant:"outline"})}  href={ticketitempath(el.id)}>go to ticket {el.id}</Link>
-//   {ticketicon[el.work]}
-  
-   
-//     <br/> </div>
-// )
-return (
-  <Card  key={el.id}   >
-  <CardHeader>
-    <CardTitle>{el.tittle}</CardTitle>
-    {/* <CardDescription>Card Description</CardDescription> */}
-    <CardDescription>
-      status {ticketicon[el.work]}
-
-    </CardDescription>
-  </CardHeader>
-  <CardContent>
-    <p>{el.content}</p>
-  </CardContent>
-  <CardFooter>
-    <div   key={el.id} > <Link      className={buttonVariants({variant:"destructive"})}  href={ticketitempath(el.id)}>view 
-    </Link>
-  
-   
-//  </div>
-  </CardFooter>    <br/>
-</Card>
-)
-
-})}
-
+</Suspense>
        </div>
 }
 
-export default  Ticketpage;
+
+let Ticketp=()=>{
+  return(
+
+    <div>
+
+      helllllllll
+        <Suspense>
+    <Ticketpage/>
+
+    </Suspense>
+    </div>
+  
+  )
+}
+
+export default Ticketp
