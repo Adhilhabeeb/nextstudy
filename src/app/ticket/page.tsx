@@ -29,12 +29,12 @@ let Ticketp=()=>{
 
       helllllllll
 
-      <ErrorBoundary   fallback="failed to fetch the data soemthing wenty wrog">
+    
             <Suspense>
     <Ticketpage/>
 
     </Suspense>
-      </ErrorBoundary>
+
     
     </div>
   
