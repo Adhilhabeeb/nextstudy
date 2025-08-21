@@ -1,13 +1,14 @@
-import { data, Ticketdatatype } from "@/data";
+
+import { prisma } from "@/lib/prisma";
 
 
-  async function Getdata():Promise<Ticketdatatype[]> {
+  async function Getdata(){
 
-    return new Promise((resolve,reject)=>{
-// throw  new Error("faild to fetchjh")
-             setTimeout(() => {
-            return resolve(data)          }, 4000);
-    })
+   return  await prisma.ticket.findMany({
+    orderBy:{
+      createdAt:"desc"
+    }
+   })
 
 }
 

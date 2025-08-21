@@ -1,12 +1,19 @@
-import { data, Ticketdatatype } from "@/data"
+
+import { Ticket } from "@/generated/prisma";
+import { prisma } from "@/lib/prisma"
 
 
 
-function getfilkterdata(id:string|number): Ticketdatatype| null |undefined {
+   async function getfilkterdata(idd:string |any): Promise<Ticket|null>{
  
-let datafilter=data.find(el=>el.id==id)
 
-return datafilter
+
+return await prisma.ticket.findUnique({
+    where:{
+        id:idd
+    }
+});
+
 }
 
 export {getfilkterdata}

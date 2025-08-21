@@ -5,7 +5,7 @@ import { Moon, Sun } from "lucide-react"
 
 
 const Themeswitcher = () => {
-    let {theme,setTheme}=useTheme()
+    const {theme,setTheme}=useTheme()
   return (
     <div>
       <Button  variant={"secondary"} size={"icon"}   onClick={()=>{

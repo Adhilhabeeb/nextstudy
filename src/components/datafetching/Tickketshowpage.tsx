@@ -15,9 +15,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { CheckCheck, ExternalLink, Sparkle } from "lucide-react";
-import { Ticketdatatype } from "@/data";
-let ticketicon={
+import { CheckCheck, ExternalLink } from "lucide-react";
+
+import Deletebutton from "../Deletebutton";
+const ticketicon={
   
     open:<ExternalLink color={"yellow"} />,done:<CheckCheck color="#e0ff42" />
 }
@@ -25,7 +26,7 @@ let ticketicon={
     export async function  Ticketshowpagec(){
 
 
-    let data =  await Getdata()
+    const data :any[] =  await Getdata()
 
 //code below here 
      return <div>
@@ -49,12 +50,13 @@ return (
     <CardTitle>{el.tittle}</CardTitle>
     {/* <CardDescription>Card Description</CardDescription> */}
     <CardDescription>
-      status {ticketicon[el.work]}
-
+      {/* status {ticketicon[el.work]} */}
+<Deletebutton id={el.id}/>
     </CardDescription>
   </CardHeader>
   <CardContent>
     <p>{el.content}</p>
+    
   </CardContent>
   <CardFooter>
     <div   key={el.id} > <Link      className={buttonVariants({variant:"destructive"})}  href={ticketitempath(el.id)}>view 

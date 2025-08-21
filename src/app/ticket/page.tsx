@@ -1,18 +1,17 @@
 
-
-
 import { Ticketshowpagec } from "@/components/datafetching/Tickketshowpage";
 import { Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
 
 
-let  Ticketpage =     ()=>{
+
+
+const  Ticketpage =     ()=>{
 
 
 
      return <div>
 
-<p>it is the ticketpo</p>
+<p>it is the ticket</p>
 
 <Suspense>
  <Ticketshowpagec/>
@@ -22,12 +21,17 @@ let  Ticketpage =     ()=>{
 }
 
 
-let Ticketp=()=>{
+const Ticketp=()=>{
+  
   return(
 
     <div>
 
+
+
       helllllllll
+
+
 
     
             <Suspense>
