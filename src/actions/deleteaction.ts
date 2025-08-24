@@ -2,6 +2,8 @@
 
 
 import { prisma } from "@/lib/prisma";
+import { ticketitempath, ticketpath } from "@/path";
+import { revalidatePath } from "next/cache";
 
 
 
@@ -14,7 +16,19 @@ import { prisma } from "@/lib/prisma";
             id,
         }
     })
+    revalidatePath(ticketpath())
 
 
 
  }
+    export  async function createTicket(id :string) {
+ 
+    await prisma.ticket.create({
+      data: {
+        title: "Introductionannnnnnnnnnn " + id,
+        content: "This is the introduction content.annnnn"+id,
+        status: "Open",
+      },
+    })
+    revalidatePath(ticketpath())
+  }

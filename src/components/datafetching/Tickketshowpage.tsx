@@ -59,7 +59,7 @@ return (
     
   </CardContent>
   <CardFooter>
-    <div   key={el.id} > <Link      className={buttonVariants({variant:"destructive"})}  href={ticketitempath(el.id)}>view 
+    <div   key={el.id} > <Link   prefetch    className={buttonVariants({variant:"destructive"})}  href={ticketitempath(el.id)}>view 
     </Link>
   
    

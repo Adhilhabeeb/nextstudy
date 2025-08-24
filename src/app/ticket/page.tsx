@@ -3,7 +3,7 @@ import { Ticketshowpagec } from "@/components/datafetching/Tickketshowpage";
 import { Suspense } from "react";
 
 
-
+// export  const  dynamic= "force-dynamic"
 
 const  Ticketpage =     ()=>{
 

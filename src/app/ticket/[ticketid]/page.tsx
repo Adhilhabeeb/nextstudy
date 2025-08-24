@@ -31,7 +31,7 @@ export default async function Itempage({params}: {
   console.log(ticketid,"ithannmown ticketid")
   return(
     <div>
-      <Suspense>
+      <Suspense fallback={<h1>loading</h1>}>
         <Ticketitempage params={{ticketid}}/>
       </Suspense>
     </div>

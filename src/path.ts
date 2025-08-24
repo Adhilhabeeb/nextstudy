@@ -1,2 +1,2 @@
   export const ticketpath=()=>"/ticket";
-  export const ticketitempath=(id:number)=>`/ticket/${id}`;
+  export const ticketitempath=(id:number | string)=>`/ticket/${id}`;

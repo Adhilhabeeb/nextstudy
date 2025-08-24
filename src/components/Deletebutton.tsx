@@ -1,15 +1,28 @@
 
-//nam
 "use client"
-import { deletefunct } from "@/actions/deleteaction"
+
+import { createTicket, deletefunct } from "@/actions/deleteaction"
+import { prisma } from "@/lib/prisma"
 import { ticketpath } from "@/path"
-import { redirect } from "next/navigation"
-import { useRouter } from "next/navigation"
+import { revalidatePath } from "next/cache"
+import {  useTransition } from "react"
+
 
 
 function Deletebutton({id}:{id:string}) {
-    let router=useRouter()
+ let [pending,starttransition]=  useTransition()
 
+//   async function createTicket() {
+//     "use server"
+//     await prisma.ticket.create({
+//       data: {
+//         title: "Introductionannnnnnnnnnn " + id,
+//         content: "This is the introduction content.annnnn"+id,
+//         status: "Open",
+//       },
+//     })
+//     revalidatePath(ticketpath())
+//   }
 
     /////////////////////////////////////using while use client  
 // let handledelete=()=>{
@@ -28,17 +41,34 @@ function Deletebutton({id}:{id:string}) {
     /////////////////////////////////////using while use clientwe can use the onclick  othewise  we can use  like  binding the delete function in a a form 
 
 return (
-   <form  action={async () => { deletefunct(id)
-router
-    redirect(ticketpath())
+   <>
+   
+   
 
-router.refresh()
+             <button 
+ onClick={()=>{
+    starttransition(async ()=>{
+   
+ await  deletefunct(id)
+    })
+ }}
+  style={{ color:"black",background:"white"}}>Delete {pending&& "is pending delete"}</button>
+ 
+       
 
-   }}>
-//         <button   style={{ color:"black",background:"white"}}>Delete</button>
-    // redirect(ticketpath())
+       <form action={ async ()=>{
+        starttransition(async ()=>{
+   
+    await  createTicket(id)
+    })
+  
+       }}>
+        <button  disabled={pending} > create </button>
+       </form>
+   
+   </>
 
-   </form>
+
 )
 
 }
