@@ -6,7 +6,7 @@ import { ticketitempath, ticketpath } from "@/path";
 import { revalidatePath } from "next/cache";
 
 
-
+import * as z from "zod";
 
 
    export  async function  deletefunct(id:string ){
@@ -21,14 +21,39 @@ import { revalidatePath } from "next/cache";
 
 
  }
-    export  async function createTicket(id :string) {
- 
-    await prisma.ticket.create({
+
+
+ let  formcreatpa=z.object({
+   tittle: z.string(),
+   content:z.string()
+
+ }
+ )
+    export  async function createTicket(id :string,state:any,formdata:FormData) :Promise<{message:string}> {
+
+let tittle=formdata.get('tittle')
+let content =formdata.get('content')
+
+
+ try{
+  
+const data = formcreatpa.parse({
+tittle,content
+});
+      console.log("tittle ",tittle,"content ",content,"and the data from zod is :",data)
+      await prisma.ticket.create({
       data: {
-        title: "Introductionannnnnnnnnnn " + id,
-        content: "This is the introduction content.annnnn"+id,
+        title:data.tittle ,
+        content: data.content,
         status: "Open",
       },
     })
     revalidatePath(ticketpath())
+
+    return {message:"created  "}
+
+ }catch{
+  return {message:"not created "}
+ }
+
   }

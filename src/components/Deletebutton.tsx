@@ -5,11 +5,14 @@ import { createTicket, deletefunct } from "@/actions/deleteaction"
 import { prisma } from "@/lib/prisma"
 import { ticketpath } from "@/path"
 import { revalidatePath } from "next/cache"
-import {  useTransition } from "react"
+import {  useActionState, useTransition } from "react"
+import CreateTicketForm from "./createForm"
 
 
 
 function Deletebutton({id}:{id:string}) {
+  let [actionstate,acytion]= useActionState(createTicket.bind("",id),{message:""}
+  )
  let [pending,starttransition]=  useTransition()
 
 //   async function createTicket() {
@@ -43,7 +46,8 @@ function Deletebutton({id}:{id:string}) {
 return (
    <>
    
-   
+   {actionstate.message?`
+ the messga eis the mm ${actionstate.message}`:""}
 
              <button 
  onClick={()=>{
@@ -54,17 +58,9 @@ return (
  }}
   style={{ color:"black",background:"white"}}>Delete {pending&& "is pending delete"}</button>
  
-       
+     
 
-       <form action={ async ()=>{
-        starttransition(async ()=>{
-   
-    await  createTicket(id)
-    })
-  
-       }}>
-        <button  disabled={pending} > create </button>
-       </form>
+     <CreateTicketForm acytion={acytion} id={id} />
    
    </>
 
